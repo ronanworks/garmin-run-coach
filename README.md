@@ -54,6 +54,4 @@
 
 ## 许可证
 
-本项目采用 [知识共享 署名-非商业性使用 4.0 国际许可协议（CC BY-NC 4.0）](https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hans)，全文见 [LICENSE](LICENSE)：
-- 可以自由分享和修改，但要署名；
-- 不得用于商业目的。
+[MIT](LICENSE)：可以自由使用、修改、再分享（包括商用），只需保留版权和许可声明；作者不提供任何担保。
