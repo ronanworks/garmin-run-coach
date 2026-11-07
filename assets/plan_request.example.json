@@ -1,0 +1,15 @@
+{
+  "_说明": "plan_tool.py build 的输入。current 里的数字来自 ~/garmin-coach/reports/metrics_latest.json；示例数据是虚构的。",
+  "start": "2026-12-07",
+  "race": {"name": "某某马拉松", "date": "2027-04-18", "distance_m": 42195, "goal_time": "4:00:00"},
+  "current": {
+    "avg4_km": 32, "max_week_km": 41, "longest_30d_km": 16,
+    "hrmax": 186, "lthr": null,
+    "race": {"distance_m": 21097.5, "time": "1:52:30", "date": "2026-10-18"}
+  },
+  "skeleton": {"mon": "easy", "tue": "rest", "wed": "easy_q2", "thu": "quality", "fri": "rest", "sat": "long", "sun": "recovery"},
+  "backup": {"thu": "fri", "sat": "sun"},
+  "day_max_min": {"mon": 60, "wed": 45, "thu": 70, "sun": 60},
+  "recovery_every": 4,
+  "name_prefix": "春马·"
+}

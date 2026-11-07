@@ -1,0 +1,69 @@
+{
+  "_说明": "智能体在第 2 步问完用户后填写，保存为 ~/garmin-coach/athlete.json。不知道的项留 null。示例数据是虚构的。 city_coords / city_history 只写城市级坐标（两位小数），用于查历史气温；hrpace_ref_pace / hrpace_ref_hr 可指定心率-配速分析的参考配速和参考心率，不填则自动选。",
+  "nickname": "小林",
+  "sex": "F",
+  "birth_year": 1992,
+  "hrmax": 186,
+  "hrmax_source": "去年比赛冲刺时手表记录的最高值",
+  "lthr": null,
+  "lt1": null,
+  "lt2": null,
+  "rhr": null,
+  "races": [
+    {
+      "name": "城市半马",
+      "date": "2026-09-20",
+      "distance_m": 21097.5,
+      "time": "1:52:30"
+    }
+  ],
+  "goal": {
+    "race_name": "某某马拉松",
+    "date": "2027-04-18",
+    "distance_m": 42195,
+    "target_time": "4:00:00"
+  },
+  "availability": {
+    "mon": "19:00 后，最多 60 分钟",
+    "tue": "休息",
+    "wed": "早上 6:30，最多 45 分钟",
+    "thu": "19:00 后，最多 70 分钟",
+    "fri": "不能跑",
+    "sat": "上午，时间充裕",
+    "sun": "上午，最多 60 分钟"
+  },
+  "preferences": {
+    "long_run_day": "sat",
+    "rest_day": "fri",
+    "strength_ok": true
+  },
+  "injuries": [
+    {
+      "what": "右侧髂胫束不适",
+      "when": "2025-05",
+      "now": "已无症状"
+    }
+  ],
+  "screening": {
+    "heart_disease": false,
+    "chest_pain_or_fainting": false,
+    "hr_medication": false,
+    "pregnant": false
+  },
+  "city_coords": [
+    31.23,
+    121.47
+  ],
+  "notes": "春节回老家一周，那周只能跑 3 次",
+  "city_history": [
+    {
+      "from": "2026-07-01",
+      "coords": [
+        31.23,
+        121.47
+      ]
+    }
+  ],
+  "hrpace_ref_pace": null,
+  "hrpace_ref_hr": null
+}

@@ -1,0 +1,18 @@
+# Python 缓存
+__pycache__/
+*.pyc
+# 系统文件
+.DS_Store
+# 打包文件
+*.zip
+*.skill
+# 任何个人数据都不应该进仓库（以防有人把数据目录放在这里）
+garmin-coach/
+raw/
+derived/
+reports/
+plan/
+*.fit
+athlete.json
+wellness.json
+sweat_tests.json
