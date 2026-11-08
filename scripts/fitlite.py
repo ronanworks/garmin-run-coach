@@ -185,9 +185,16 @@ def load_run(path, keep_gps=False):
         tgt = None
         if tt == 0 and lo and hi:      # 速度，mm/s
             tgt = {"kind": "speed", "low": lo / 1000.0, "high": hi / 1000.0}
-        elif tt == 1 and lo and hi:    # 心率：>100 表示 bpm+100，≤100 表示 %HRmax
-            tgt = {"kind": "hr", "low": lo - 100 if lo > 100 else None, "high": hi - 100 if hi > 100 else None,
-                   "pct": lo <= 100}
+        elif tt == 1 and lo is not None and hi:
+            # 心率目标有两种存法：FIT 规范是“≤100 = %HRmax，>100 = bpm+100”；
+            # 但 Connect 网页/本技能写入的课程，手表实测直接存 bpm（例如 100 和 135，2026-11 观察）。
+            # 判断：上限 ≥200 按规范减 100；上限在 101–199 按原值 bpm；上限 ≤100 才是 %HRmax。
+            if hi >= 200:
+                tgt = {"kind": "hr", "low": (lo - 100) if lo > 100 else None, "high": hi - 100, "pct": False}
+            elif hi > 100:
+                tgt = {"kind": "hr", "low": lo if lo > 0 else None, "high": hi, "pct": False}
+            else:
+                tgt = {"kind": "hr", "low": lo or None, "high": hi, "pct": True}
         dtp, dv = w.get(1), w.get(2)
         steps.append({"idx": w.get(254), "name": w.get(0) if isinstance(w.get(0), str) else None,
                       "dur_type": dtp,  # 0 时间 1 距离 6 重复

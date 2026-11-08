@@ -279,6 +279,9 @@ def review(aid=None, day=None):
     structured = (len({s_["step"] for s_ in segs if s_["step"] is not None}) >= 2) or \
         any(KIND.get(s_["intensity"]) in ("恢复", "休息") for s_ in segs)
     unstructured_laps = 0
+    # 中间有没有恢复/休息段：没有的话是分段设心率上限的连续跑（比如长距离），不是间歇课
+    has_rec = any(KIND.get(s_["intensity"]) in ("恢复", "休息") for s_ in segs) or \
+        any(KIND.get((steps.get(s_["step"]) or {}).get("intensity")) in ("恢复", "休息") for s_ in segs if s_["step"] is not None)
     for s in segs:
         if s["T"] < 20:  # 结束时多按出来的零碎圈
             continue
@@ -291,7 +294,7 @@ def review(aid=None, day=None):
         label = kind
         if kind == "训练" and structured and len(segs) > 2:
             rep_n += 1
-            label = "第 %d 组" % rep_n
+            label = ("第 %d 组" if has_rec else "第 %d 段") % rep_n
             work.append(s)
         if kind == "恢复" and prev_work is not None:
             hs = hr_series(rec, s["start"], s["end"])
@@ -344,7 +347,7 @@ def review(aid=None, day=None):
         pass
     dur_s = a.get("movingDuration") or a.get("duration") or 0
     if ((a.get("eventType") or {}).get("typeKey") == "race" or (a.get("distance") or 0) >= 18000 or dur_s >= 5400) \
-            and len(work) < 2:
+            and (len(work) < 2 or not has_rec):
         cs = ((M or {}).get("fitness") or {}).get("cs") or {}
         L.extend(race_section(rec, a, cs.get("cs")))
     ath = gclib.load_json(home / "athlete.json", {}) or {}
