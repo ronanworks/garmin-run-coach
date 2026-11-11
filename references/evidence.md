@@ -1,6 +1,6 @@
 # 跑步教练技能证据库（evidence.md）
 
-本文件整理自四份已核验的研究笔记（训练设计、负荷与损伤、恢复与设备、预测与比赛）及三条力量训练证据。所有引用保持原文英文；结论为中文。每条证据有固定 ID，其他文件通过 [ID] 引用。
+本文件整理自四份已核验的研究笔记（训练设计、负荷与损伤、恢复与设备、预测与比赛）及三条力量训练证据；v1.3、v1.4 新增的条目在各自一节，PMID 都用 PubMed E-utilities 核对过。所有引用保持原文英文；结论为中文。每条证据有固定 ID，其他文件通过 [ID] 引用。
 
 ## 使用规则
 
@@ -205,6 +205,54 @@
 | LOAD-12 | session RPE 负荷和心率 TRIMP 相关 r = 0.76（心率区间法 0.84），但不完全一致；不一致的方向本身有信息 | B |
 | SUBJ-2 | 每日主观状态评分（睡眠、疲劳、压力、肌肉酸痛）能追踪过度训练和减量反应（14 名游泳运动员） | B（样本小） |
 | STR-4 | 中长跑运动员：大重量力量训练（效应量 −0.47）和组合训练（−1.04）能提高跑步成绩，单纯跳跃训练不显著 | A |
+
+### 七、v1.4 新增：中断后复训、坡度校正、比赛周、引用自检、每周复盘
+
+| ID | 一句话结论（技能里怎么用） | 等级 |
+|---|---|---|
+| DETR-1 | 12 名长跑运动员完全停训 14 天：最大摄氧量约 −4%，同配速心率约 +11 bpm，跑步经济性不变；次极量心率比最大摄氧量更敏感 | B（样本小） |
+| DETR-2 | 7 名耐力运动员停训：21 天最大摄氧量约 −7%，56 天稳定在比训练时低约 16%，84 天仍高于久坐对照 | B（样本小） |
+| DETR-3 | 只要保持强度、频率只适度降低，大幅减量也能避免或限制停训损失（叙述综述） | C |
+| ILL-3 | IOC 2022 急性呼吸道感染共识：按严重度分级；静息症状清单 → 平时 60–70% 强度、10–20 分钟的自测运动 → 观察 24 小时；颈部检查“最初没有数据依据” | A（共识；复训步骤本身是专家意见） |
+| ILL-4 | 新冠分级复训（BJSM 2022 更新）：有颈部以下症状至少完全休息 5 天、满 10 天才恢复正常训练；只有颈部以上症状至少 5 天 | C |
+| ILL-5 | 147 名英国国际级运动员感染新冠：训练损失中位 18 天（其他呼吸道感染约 6 天）；下呼吸道表型恢复更慢 | B |
+| LOAD-13 | 261 名半马备赛跑者：周跑量增加 20–60% 的人第 21 天受伤风险差 22.6%，第 56、98 天不显著；周增幅只适合提醒 | B |
+| GAP-1 | 10 人跑步机测量 −45% 到 +45% 坡度的跑步能耗：平路 3.40 J/kg/m，−20% 处最低 1.73；技能用它的五次多项式做上坡校正 | B（样本小） |
+| GAP-2 | Strava 2017 按心率重拟的坡度校正：下坡最多省约 12%（−9% 处 0.88），到 −18% 不再省；完整曲线未公开 | C（厂商说法，未核实） |
+| GAP-3 | 8 名跑者户外坡道：上坡慢 23%、下坡快 13.8%，坡后平路配速约 24–78 秒才恢复 | B（样本小） |
+| CAF-1 | ISSN 立场声明：咖啡因 3–6 mg/kg 稳定提升耐力表现，最低可约 2 mg/kg；9 mg/kg 副作用多且没必要；常用赛前约 60 分钟 | A |
+| CAF-2 | 48 项随机试验的剂量反应荟萃：4–6 mg/kg（SMD −0.52）约是 ≤3 mg/kg（−0.27）的两倍；没有 >6 mg/kg 的合格研究 | A |
+| CAF-3 | 低剂量咖啡因（<3 mg/kg，约 200 mg）有提升作用、几乎没有副作用（叙述综述） | C |
+| SUPP-1 | IOC 补剂共识：只有咖啡因、肌酸、特定缓冲剂和硝酸盐有较好的表现证据；先在训练中试用，注意兴奋剂污染 | A |
+| MED-1 | 波恩马拉松 3,913 人前瞻队列：赛前服止痛药者不良事件约高 5 倍，9 例住院全在服药者中 | B |
+| MED-2 | 美国长距离路跑 2,930 万完赛者（2010–2023）：心脏骤停每 10 万约 0.60 例（全马 1.04、半马 0.47），病死率从 71% 降到 34% | B |
+| MED-3 | 一款聊天机器人给 26 类人群的运动建议：只有 41% 全面，53% 的错误出在运动前医学筛查 | B |
+| SLEEP-4 | 283 名精英运动员：64% 在重要比赛前至少有一次睡不好，主要是入睡困难 | B（问卷） |
+| SLEEP-5 | 急性睡眠不足荟萃：稳定的伤害来自通宵和“比平时早起”，清醒每多 1 小时约降 0.4%；上午进行的任务基本不受影响 | A |
+| SLEEP-6 | 9 名耐力运动员连续 3 晚多躺 30%：第 4 天计时赛 56.8 vs 58.7 分钟 | B（样本小） |
+| SLEEP-7 | 运动员午睡系统综述：建议 13:00–16:00 睡 20–90 分钟，训练前留 30 分钟清醒；与 SLEEP-1 的“<30 分钟”并列说明 | A（研究质量中等） |
+| WARM-1 | 13 名训练有素的跑者：5000 m 前做 3×250 m 比赛强度热身，比低强度热身快约 6 秒 | B（样本小） |
+| WARM-2 | 12 名休闲跑者：热身中 10 分钟动态拉伸改善跑步经济性，60 秒静态拉伸没有 | B（样本小） |
+| WARM-3 | 热身综述：热身让体温调节负担明显增加时可能伤耐力表现 | C |
+| AI-1 | 636 条大模型生成的引用：GPT-3.5 编造 55%、GPT-4 编造 18%；真实的引用里也有 43% / 24% 带实质性错误 | B |
+| AI-2 | GPT-3.5 医学文章的 115 条引用：47% 编造，只有 7% 真实且准确；最常错的是 PMID | B |
+| AI-3 | 5 个聊天机器人、250 个问题：49.6% 的回答有问题，运动表现属最差领域之一；拒答只有 0.8%，没有一个能给出完全准确的参考文献 | B |
+| AI-4 | 用指南原文做检索增强后，GPT-4o 在急性冠脉综合征指南问答的准确率从 71.1% 升到 92.1% | B |
+| AI-5 | 137 项聊天机器人健康建议研究的系统综述：99.3% 无法确定模型版本 | A（针对报告质量） |
+| AI-6 | ChatGPT 给跑者写 6 周课表：输入最少时 22 项指标有 19 项中位评分 <3/5，输入越详细越好；作者建议不要在没有教练审核时使用 | B（样本小） |
+| AI-7 | 运动营养问答：各聊天机器人开放题准确率 31–74%，简单提问时引用证据的质量都低 | B |
+| BCT-1 | 122 项评价的荟萃回归：自我监测加上至少一种“设目标/反馈/回顾目标”技巧，效应 0.42，其他组合 0.26 | A |
+| BCT-2 | 121 项随机试验：活动监测器反馈让身体活动增加（SMD 0.42） | A |
+| BCT-3 | 13 项随机试验：“如果……就……”执行意图让身体活动增加（SMD 0.25） | A |
+| BCT-4 | 130 项随机试验（慢性病人群）：数字化运动干预的效应在干预结束时 0.29，随访时降到 0.17 | A |
+| BCT-5 | 774 名新手跑者：29.5% 在 26 周内停跑，其中 48% 是因为伤病 | B |
+| BCT-6 | 176 人随机试验：计步应用加上即时个性化教练消息，步数没有差别 | B |
+| UNC-1 | 5,780 人的实验：说明数字的不确定性只让信任略降，用文字而不是数字表达时降得多一些 | B |
+| UNC-2 | 33 项研究的综述：人们对“罕见”“常见”这类词的理解差异很大，多数人更想看到数字 | A |
+| UNC-3 | “量级推断”（“可能变好/不明确”这类判定的来源）在小样本下会把一类错误放大 2–6 倍（方法学评论） | C |
+| UNC-4 | 63 名失眠者收到伪造的“睡得差”反馈后，主观警觉度变差，客观测试没有差别 | B（样本小） |
+
+---
 
 ## 详细条目
 
@@ -947,3 +995,338 @@
 - 用法：plan_tool 的力量课在强化、专项期安排“大重量+跳跃”；基础期先练一般力量，动作熟练后再加重。
 - 局限：作者评价的证据确定性低到中等；各研究的方案差异大。等级 A。
 - 核验：VERIFIED（PubMed 摘要）。
+
+## 七、v1.4 新增
+
+### [DETR-1] 长跑运动员停训 14 天（Houmard）
+- 引用：Houmard JA, Hortobágyi T, Johns RA, Bruno NJ, Nute CC, Shinebarger MH, et al. (1992). Effect of short-term training cessation on performance measures in distance runners. Int J Sports Med 13(8):572-576. https://doi.org/10.1055/s-2007-1024567 PMID 1487339
+- 研究：12 名长跑运动员完全停训 14 天，前后测试。
+- 发现：最大摄氧量 61.6 → 58.7 ml/kg/min（约 −4%）；力竭时间缩短约 9%；最大心率 +9 bpm；同速度下的次极量心率 +11 bpm；跑步经济性不变；血浆容量 −5.1%。作者认为力竭时间和次极量心率比最大摄氧量更能反映停训。
+- 用法：resume.py 按停跑天数分档时引用；中断 8 天以上回来第 2 周安排有氧检查跑，用同配速心率实测掉了多少，而不是按天数猜。
+- 局限：样本小，受试者是训练有素的男性长跑运动员，完全停训（不是减量）。等级 B（样本小）。
+- 核验：VERIFIED（PubMed 元数据 2026-11-11；数字来自摘要）。
+
+### [DETR-2] 停训后适应消退的时间线（Coyle）
+- 引用：Coyle EF, Martin WH 3rd, Sinacore DR, Joyner MJ, Hagberg JM, Holloszy JO (1984). Time course of loss of adaptations after stopping prolonged intense endurance training. J Appl Physiol 57(6):1857-1864. https://doi.org/10.1152/jappl.1984.57.6.1857 PMID 6511559
+- 研究：7 名长期高强度训练的耐力运动员停训 84 天，多次测量。
+- 发现：前 21 天最大摄氧量下降 7%，56 天后稳定在比训练时低 16% 的水平；84 天时仍高于久坐对照（50.8 vs 43.3 ml/kg/min）。早期下降主要来自每搏量减少。
+- 用法：resume.py 的 15–28 天和 >28 天两档的生理参考；超过 28 天要重新定基线、重新生成课表。
+- 局限：样本很小；完全停训；受试者训练水平高。等级 B（样本小）。
+- 核验：VERIFIED（PubMed 元数据 2026-11-11；数字来自摘要）。
+
+### [DETR-3] 停训综述：保持强度能减少损失（Mujika & Padilla）
+- 引用：Mujika I, Padilla S (2000). Detraining: loss of training-induced physiological and performance adaptations. Part II: Long term insufficient training stimulus. Sports Med 30(3):145-154. https://doi.org/10.2165/00007256-200030030-00001 PMID 10999420
+- 研究：叙述综述。
+- 发现：长期训练刺激不足会让新近获得的最大摄氧量提升完全消失；只要保持训练强度、频率只适度降低，即使大幅减量也能避免或限制这些损失。
+- 用法：复训和生病期间的原则“先减量、保留一点强度”；不是具体的百分比。
+- 局限：叙述综述，没有系统检索。等级 C。
+- 核验：VERIFIED（PubMed 元数据 2026-11-11；结论来自摘要）。
+
+### [ILL-3] IOC 急性呼吸道感染共识：复训流程（Schwellnus 2022）
+- 引用：Schwellnus M, Adami PE, Bougault V, Budgett R, Clemm HH, Derman W, et al. (2022). International Olympic Committee (IOC) consensus statement on acute respiratory illness in athletes part 1: acute respiratory infections. Br J Sports Med 56(19):1066-1088. https://doi.org/10.1136/bjsports-2022-105759 PMID 35863871
+- 研究：IOC 专家共识（基于系统综述和专家意见）。
+- 发现（全文）：
+  - 严重度：轻度 = 只有上呼吸道症状、3 天内好转；中度 = 下呼吸道或局部症状、3–7 天好转；重度 = 全身症状（发热 >38 °C、寒战、过度疲劳、肌肉酸痛）或心脏受累迹象（胸痛、胸闷、头晕、心悸）、症状超过 7 天，或好转后复发。
+  - 轻、中度：可以正常日常活动；开始或恢复训练前每天过一张静息症状清单（发热、寒战、过度疲劳、肌肉酸痛、气促、胸痛或胸闷、头晕或静息心悸、中度以上咳嗽、严重头痛、持续鼻咽或肠胃症状、“就是觉得状态不够”）。重度：卧床到症状消失，再看运动医学医生。
+  - 自测运动：先过清单，热身后以平时 60–70% 的强度活动，10–20 分钟后评估；出现过度疲劳、气促、心率异常就停；之后 24 小时留意症状、心率恢复变慢和尿色变深；正常才逐步增加频率、强度和时长，异常就停训看医生。
+  - 颈部检查只是历史上的专家意见，后来的复训指南“最初没有数据依据”。
+  - 赛前 8–12 天内的感染降低了按时起跑的可能；共识引用的一项既往队列中，完成 80% 以上计划周的运动员达成目标的可能性高 7 倍，每多一周有改课，达成关键目标的几率降低 26%。
+- 用法：resume.py 和 today.py 的生病流程；daily-adjust.md 的 D2。说“共识建议”，不说“研究证明”。
+- 局限：复训步骤本身是专家意见；80%/7 倍来自共识引用的单个队列（原始研究未单独核对），只能当群体关联。等级 A（共识；复训步骤本身是专家意见）。
+- 核验：VERIFIED（PubMed 元数据 2026-11-11；全文由研究笔记通过 CASEM 公开的 PDF 副本阅读）。
+
+### [ILL-4] 新冠后分级复训（BJSM 2022 更新）
+- 引用：Elliott N, Biswas A, Heron N, Ranson C, Hull J, Martin R, Elliott J (2022). Graduated return to play after SARS-CoV-2 infection: what have we learned and why we've updated the guidance. BJSM blog, 23 April 2022. https://blogs.bmj.com/bjsm/2022/04/23/graduated-return-to-play-after-sars-cov-2-infection-what-have-we-learned-and-why-weve-updated-the-guidance/（更新的是 2020 年的信息图，PMID 32571796）
+- 研究：专家指南（博客形式）。
+- 发现：开始前要能正常日常活动、平路走不气促。有颈部以下症状（发热、气促、胸痛、心悸）：从第 1 阶段开始，至少完全休息 5 天，至少 10 天后才恢复正常训练。只有颈部以上症状：从第 2 阶段开始，至少 5 天。第 2、3 阶段各至少 48 小时。出现任何红旗就停止，找医生评估；住院过的人要医生主导的方案。
+- 用法：resume.py --covid 的最低天数。分阶段的心率和用力上限在原图中，没有提取，不写入。
+- 局限：专家意见，不是试验结论。等级 C。
+- 核验：VERIFIED（博客正文，研究笔记阅读）；各阶段心率/RPE 上限未核实，不用。
+
+### [ILL-5] 国际级运动员感染新冠后的训练损失（Hull 2022）
+- 引用：Hull JH, Wootten M, Moghal M, Heron N, Martin R, Walsted ES, et al. (2022). Clinical patterns, recovery time and prolonged impact of COVID-19 illness in international athletes: the UK experience. Br J Sports Med 56(1):4-11. https://doi.org/10.1136/bjsports-2021-104392 PMID 34340972
+- 研究：147 名英国国际级运动员的观察研究。
+- 发现：症状持续中位 10 天（IQR 6–17）；训练损失中位 18 天（IQR 12–30），27% 超过 28 天仍不能训练；其他呼吸道感染的训练损失约 6 天。下呼吸道表型（气促、胸痛、咳嗽、发热）症状迁延风险约 3 倍。
+- 用法：提醒新冠后的复训通常比普通感冒长，比赛和目标要预留余地。
+- 局限：精英运动员，早期毒株年代。等级 B。
+- 核验：VERIFIED（PubMed 元数据 2026-11-11；数字来自摘要）。
+
+### [LOAD-13] 半马备赛中周跑量增幅与受伤（Damsted 2019）
+- 引用：Damsted C, Parner ET, Sørensen H, Malisoux L, Hulme A, Nielsen RØ (2019). The association between changes in weekly running distance and running-related injury: preparing for a half marathon. J Orthop Sports Phys Ther 49(4):230-238. https://doi.org/10.2519/jospt.2019.8541 PMID 30526231
+- 研究：261 名半马备赛跑者，14 周前瞻队列。
+- 发现：21.5% 受伤。第 21 天时，周跑量增加 20–60% 的人比增加 <20% 的人受伤风险差 22.6%（95% CI 0.9–44.3%）；第 56 和 98 天差别不显著。
+- 用法：周增幅只作提醒（plan_tool 的 P2 是 INFO/WARN，不拦截）；单次尖峰用 P1 [LOAD-3]。
+- 局限：样本中等，置信区间很宽。等级 B。
+- 核验：VERIFIED（PubMed 元数据 2026-11-11；数字来自摘要）。
+
+### [GAP-1] 上下坡跑步的能耗（Minetti 2002）
+- 引用：Minetti AE, Moia C, Roi GS, Susta D, Ferretti G (2002). Energy cost of walking and running at extreme uphill and downhill slopes. J Appl Physiol 93(3):1039-1046. https://doi.org/10.1152/japplphysiol.01177.2001 PMID 12183501
+- 研究：10 名跑者在跑步机上从 −45% 到 +45% 坡度测能耗。
+- 发现：平路跑步能耗 3.40 ± 0.24 J/kg/m，与速度无关；+45% 时 18.93，−20% 时最低 1.73，−45% 时回升到 3.92。五次多项式 Cr(i) = 155.4i⁵ − 30.4i⁴ − 43.3i³ + 46.3i² + 19.5i + 3.6（i 为坡度小数）；按多项式算 Cr(0) = 3.60、Cr(−0.20) = 1.80、Cr(+0.45) = 19.43，与实测吻合，最低点约在 −18%。
+- 用法：gap.py 的上坡校正 f = Cr(i)/Cr(0)。
+- 局限：实验室、样本小、稳定状态；超过 ±10% 坡度时个人能耗与平路能耗的关系明显变弱。多项式系数取自引用它的同行评议论文（Jaén-Carrillo & Pattis 2026, Sensors, PMID 42356703），原文全文未打开；该论文把最低点写成 −10%，那是步行的最低点。等级 B（样本小）。
+- 核验：PubMed 元数据 VERIFIED（2026-11-11）；系数为二手来源，已用原文摘要的实测值反算核对。
+
+### [GAP-2] Strava 按心率重拟的坡度校正（厂商说法）
+- 引用：Strava Engineering (2017). An improved GAP model. https://medium.com/strava-engineering/an-improved-gap-model-8b07ae8886c3
+- 研究：厂商用大量跑步数据，把坡度校正重新定义为“同样心率下的平路配速”。
+- 发现：下坡的校正系数最低约 0.88（−9% 处），到 −18% 回到 1.0；旧的能耗模型在 −18% 处给 0.5。完整曲线和上坡数值未公开。
+- 用法：gap.py 下坡“省力”封顶的形状（经过 0、−9%、−18% 三点的折线）——本技能的经验值。
+- 局限：厂商博客，方法未同行评议。等级 C（厂商说法）。
+- 核验：UNVERIFIED（原博客 2026-11 打不开，数字来自搜索摘要和二手博客的转述）。
+
+### [GAP-3] 户外坡道上的自主配速（Townshend 2010）
+- 引用：Townshend AD, Worringham CJ, Stewart IB (2010). Spontaneous pacing during overground hill running. Med Sci Sports Exerc 42(1):160-169. https://doi.org/10.1249/MSS.0b013e3181af21e2 PMID 20010117
+- 研究：8 名有经验的跑者户外自主配速计时跑。
+- 发现：上坡比平路慢 23%，下坡快 13.8%；上坡后平路配速约 78 秒才恢复，下坡后约 24 秒。
+- 用法：坡度校正只按公里或 ≥5 分钟的窗口看，不逐秒和心率比较。
+- 局限：样本很小。等级 B（样本小）。
+- 核验：VERIFIED（PubMed 元数据 2026-11-11；数字来自摘要）。
+
+### [CAF-1] ISSN 咖啡因立场声明（Guest 2021）
+- 引用：Guest NS, VanDusseldorp TA, Nelson MT, Grgic J, Schoenfeld BJ, Jenkins NDM, et al. (2021). International society of sports nutrition position stand: caffeine and exercise performance. J Int Soc Sports Nutr 18(1):1. https://doi.org/10.1186/s12970-020-00383-4 PMID 33388079
+- 研究：立场声明（基于文献综述）。
+- 发现：有氧耐力项目获益最一致（中到大效应，个体差异大）；3–6 mg/kg 稳定有效，最低可约 2 mg/kg；9 mg/kg 副作用多且没必要；最常见的时间是运动前约 60 分钟；会影响睡眠和焦虑，受习惯摄入和遗传影响。
+- 用法：raceweek.py 的剂量范围和时间；封顶 6 mg/kg。
+- 局限：立场声明，个体反应差异大。等级 A。
+- 核验：VERIFIED（PubMed 元数据 2026-11-11；数字来自摘要）。
+
+### [CAF-2] 咖啡因剂量反应荟萃（Martins 2026）
+- 引用：Martins GL, Aparecido JM, Marquezi ML, Frientes CS, Miedes LR, Fornel MS, et al. (2026). Dose-response effect of oral caffeine use on aerobic exercise performance: a systematic review and meta-analysis. Nutrients 18(12):1989. https://doi.org/10.3390/nu18121989 PMID 42356375
+- 研究：48 项随机试验、689 名受试者的荟萃分析（计时类结局）。
+- 发现：≤3 mg/kg：SMD −0.27（−0.44 到 −0.11）；4–6 mg/kg：SMD −0.52（−0.77 到 −0.28）；没有合格的 >6 mg/kg 研究。
+- 用法：raceweek.py 说明“4–6 mg/kg 效果约是低剂量的两倍”；不给 >6 mg/kg。
+- 局限：研究多为小样本交叉试验，项目和人群混合。等级 A。
+- 核验：VERIFIED（PubMed 元数据 2026-11-11；数字来自摘要）。
+
+### [CAF-3] 低剂量咖啡因（Spriet 2014）
+- 引用：Spriet LL (2014). Exercise and sport performance with low doses of caffeine. Sports Med 44(Suppl 2):S175-S184. https://doi.org/10.1007/s40279-014-0257-8 PMID 25355191
+- 研究：叙述综述。
+- 发现：低剂量（<3 mg/kg，约 200 mg）有提升作用，几乎没有副作用，主要通过中枢提高警觉和情绪；运动前或运动中都可以，要个人试过。
+- 用法：raceweek.py 的低剂量选项。
+- 局限：叙述综述；作者有行业资助背景（未核实）。等级 C。
+- 核验：VERIFIED（PubMed 元数据 2026-11-11；结论来自摘要）。
+
+### [SUPP-1] IOC 补剂共识（Maughan 2018）
+- 引用：Maughan RJ, Burke LM, Dvorak J, Larson-Meyer DE, Peeling P, Phillips SM, et al. (2018). IOC consensus statement: dietary supplements and the high-performance athlete. Br J Sports Med 52(7):439-455. https://doi.org/10.1136/bjsports-2018-099027 PMID 29540367
+- 研究：IOC 专家共识。
+- 发现：直接提升表现的补剂中，只有咖啡因、肌酸、特定缓冲剂和硝酸盐有较好的证据；任何补剂都要先在训练中试用，并注意兴奋剂污染。
+- 用法：raceweek.py “比赛日不尝试新东西、先在训练里试过”；技能不推荐其他补剂。
+- 局限：针对高水平运动员。等级 A。
+- 核验：VERIFIED（PubMed 元数据 2026-11-11；结论来自摘要）。
+
+### [MED-1] 马拉松前服止痛药与不良事件（Küster 2013）
+- 引用：Küster M, Renner B, Oppel P, Niederweis U, Brune K (2013). Consumption of analgesics before a marathon and the incidence of cardiovascular, gastrointestinal and renal problems: a cohort study. BMJ Open 3(4):e002090. https://doi.org/10.1136/bmjopen-2012-002090 PMID 23604350
+- 研究：波恩马拉松 3,913 人的前瞻队列。
+- 发现：赛前服止痛药的跑者不良事件约高 5 倍（风险差 13%），随剂量增加；9 例住院全部在服药者中：布洛芬后 3 例暂时性肾衰竭，阿司匹林后 4 例出血、2 例心肌梗死。
+- 用法：raceweek.py 的止痛药提醒；医生开的处方药不让用户自己停。
+- 局限：观察性，服药是自己选的，可能有混杂。等级 B。
+- 核验：VERIFIED（PubMed 元数据 2026-11-11；数字来自摘要）。
+
+### [MED-2] 长距离路跑中的心脏骤停（Kim 2025）
+- 引用：Kim JH, Rim AJ, Miller JT, Jackson M, Patel N, Rajesh S, et al. (2025). Cardiac arrest during long-distance running races. JAMA 333(19):1699-1707. https://doi.org/10.1001/jama.2025.3026 PMID 40159341
+- 研究：美国 2010–2023 年 2,930 万名半马和全马完赛者的登记研究。
+- 发现：心脏骤停发生率稳定在每 10 万约 0.60 例（全马 1.04、半马 0.47；男性 1.12、女性 0.19）；病死率从 71% 降到 34%；旁观者心肺复苏是存活关键。
+- 用法：raceweek.py 的心脏提醒：问症状和家族史，有就先看医生；技能不做风险评分，也不说“可以参赛”。
+- 局限：美国数据。等级 B。
+- 核验：VERIFIED（PubMed 元数据 2026-11-11；数字来自摘要）。
+
+### [MED-3] 聊天机器人的运动建议漏掉医学筛查（Zaleski 2024）
+- 引用：Zaleski AL, Berkowsky R, Craig KJT, Pescatello LS (2024). Comprehensiveness, accuracy, and readability of exercise recommendations provided by an AI-based chatbot: mixed methods study. JMIR Med Educ 10:e51308. https://doi.org/10.2196/51308 PMID 38206661
+- 研究：一款聊天机器人为 26 类临床人群给出运动建议，对照金标准编码。
+- 发现：41.2% 全面，90.7% 准确；53% 的不准确出在运动前医学筛查；阅读难度为大学水平。
+- 用法：第 2 步的安全筛查问题必须问；比赛前再问一次心脏症状（raceweek.py）。
+- 局限：单一聊天机器人、早期版本。等级 B。
+- 核验：VERIFIED（PubMed 元数据 2026-11-11；数字来自摘要）。
+
+### [SLEEP-4] 重要比赛前的睡眠困扰（Juliff 2015）
+- 引用：Juliff LE, Halson SL, Peiffer JJ (2015). Understanding sleep disturbance in athletes prior to important competitions. J Sci Med Sport 18(1):13-18. https://doi.org/10.1016/j.jsams.2014.02.007 PMID 24629327
+- 研究：283 名澳大利亚精英运动员问卷。
+- 发现：64% 在过去 12 个月里至少有一次在重要比赛前睡不好，主要是入睡困难（82%），原因多是想比赛（84%）和紧张（44%）。
+- 用法：raceweek.py 告诉跑者“赛前睡不好很常见”，减少焦虑。
+- 局限：自报问卷，精英运动员。等级 B（问卷）。
+- 核验：VERIFIED（PubMed 元数据 2026-11-11；数字来自摘要）。
+
+### [SLEEP-5] 急性睡眠不足与运动表现荟萃（Craven 2022）
+- 引用：Craven J, McCartney D, Desbrow B, Sabapathy S, Bellinger P, Roberts L, et al. (2022). Effects of acute sleep loss on physical performance: a systematic and meta-analytical review. Sports Med 52(11):2669-2690. https://doi.org/10.1007/s40279-022-01706-y PMID 35708888
+- 研究：69 篇文献、227 个结局的荟萃分析。
+- 发现：急性睡眠不足（≤6 小时）平均让表现下降约 7.6%；稳定的伤害只来自完全不睡和“比平时早起”的晚段限制；运动前清醒每多 1 小时约降 0.4%；上午进行的任务基本不受影响。
+- 用法：raceweek.py：一晚睡不好不用慌；避免比赛周长期早起。
+- 局限：多为短时任务，马拉松专门数据少。等级 A。
+- 核验：VERIFIED（PubMed 元数据 2026-11-11；数字来自摘要）。
+
+### [SLEEP-6] 延长睡眠与耐力计时赛（Roberts 2019）
+- 引用：Roberts SSH, Teo WP, Aisbett B, Warmington SA (2019). Extended sleep maintains endurance performance better than normal or restricted sleep. Med Sci Sports Exerc 51(12):2516-2523. https://doi.org/10.1249/MSS.0000000000002071 PMID 31246714
+- 研究：9 名耐力自行车和铁三运动员的交叉试验；连续 3 晚卧床时间 −30%、正常或 +30%。
+- 发现：延长组第 4 天计时赛 56.8 分钟，正常组 58.7 分钟；限制组更慢。
+- 用法：raceweek.py：赛前 3–5 晚多躺约 1 小时。
+- 局限：样本很小，不是跑者。等级 B（样本小）。
+- 核验：VERIFIED（PubMed 元数据 2026-11-11；数字来自摘要）。
+
+### [SLEEP-7] 运动员午睡系统综述（Lastella 2021）
+- 引用：Lastella M, Halson SL, Vitale JA, Memon AR, Vincent GE (2021). To nap or not to nap? A systematic review evaluating napping behavior in athletes and the impact on various measures of athletic performance. Nat Sci Sleep 13:841-862. https://doi.org/10.2147/NSS.S315556 PMID 34194254
+- 研究：37 项研究的系统综述，研究质量中等。
+- 发现：午睡可能有益于表现和夜间睡眠；建议 13:00–16:00 睡 20–90 分钟，训练或比赛前留 30 分钟清醒。
+- 用法：和 SLEEP-1 的“午后小睡 <30 分钟”并列说明，不二选一；技能目前只在被问到时提。
+- 局限：研究异质、多为小样本。等级 A（研究质量中等）。
+- 核验：VERIFIED（PubMed 元数据 2026-11-11；结论来自摘要）。
+
+### [WARM-1] 5000 m 前的高强度热身（Alves 2023）
+- 引用：Alves MDDJ, Knechtle B, Silva DDS, Fernandes MSDS, Gomes JH, Thuany M, et al. (2023). Effects of high-intensity warm-up on 5000-meter performance time in trained long-distance runners. J Sports Sci Med 22(2):254-262. https://doi.org/10.52082/jssm.2023.254 PMID 37293424
+- 研究：13 名训练有素的长跑运动员交叉试验。
+- 发现：500 m 轻松跑加 3×250 m 比赛强度的热身，比低强度热身快（1141.4 vs 1147.8 秒，g = 0.66），配速更平稳。
+- 用法：raceweek.py 的 5K/10K 热身课（3 段约 45 秒比赛配速）。
+- 局限：样本小，只测了 5000 m。等级 B（样本小）。
+- 核验：VERIFIED（PubMed 元数据 2026-11-11；数字来自摘要）。
+
+### [WARM-2] 热身中的动态拉伸（Panascì 2025）
+- 引用：Panascì M, Ferrando V, Bisio A, Filipas L, Di Gennaro S, Puce L, et al. (2025). Moderate-duration dynamic stretching during warm-up improves running economy and running performance in recreational distance runners. Int J Sports Physiol Perform 20(1):99-108. https://doi.org/10.1123/ijspp.2023-0468 PMID 39608347
+- 研究：12 名休闲跑者交叉试验。
+- 发现：5 分钟跑步加 10 分钟动态拉伸，比只跑步改善了跑步经济性和最大有氧速度下的力竭时间；60 秒静态拉伸没有效果。
+- 用法：raceweek.py 热身里用动态拉伸，不做长时间静态拉伸。
+- 局限：样本小。等级 B（样本小）。
+- 核验：VERIFIED（PubMed 元数据 2026-11-11；结论来自摘要）。
+
+### [WARM-3] 热身的结构（Bishop 2003）
+- 引用：Bishop D (2003). Warm up II: performance changes following active warm up and how to structure the warm up. Sports Med 33(7):483-498. https://doi.org/10.2165/00007256-200333070-00002 PMID 12762825
+- 研究：叙述综述。
+- 发现：主动热身能改善持续 5 分钟以上的表现，前提是开始时相对不疲劳；如果热身明显增加体温调节负担，可能伤耐力表现。
+- 用法：半马、全马的热身要短；天热时减到最少。具体做法是经验做法。
+- 局限：叙述综述，年代早。等级 C。
+- 核验：VERIFIED（PubMed 元数据 2026-11-11；结论来自摘要）。
+
+### [AI-1] ChatGPT 生成引用的编造和错误（Walters & Wilder 2023）
+- 引用：Walters WH, Wilder EI (2023). Fabrication and errors in the bibliographic citations generated by ChatGPT. Sci Rep 13(1):14045. https://doi.org/10.1038/s41598-023-41032-5 PMID 37679503
+- 研究：84 篇短文献综述中的 636 条引用。
+- 发现：GPT-3.5 的引用 55% 是编造的，GPT-4 是 18%；没编造的引用里，分别有 43% 和 24% 带实质性错误。
+- 用法：check_refs.py：正文只写证据编号，不让模型手写 PMID/DOI。
+- 局限：模型版本较早，题材不限于运动科学。等级 B。
+- 核验：VERIFIED（PubMed 元数据 2026-11-11；数字来自摘要）。
+
+### [AI-2] 医学内容中编造的参考文献（Bhattacharyya 2023）
+- 引用：Bhattacharyya M, Miller VM, Bhattacharyya D, Miller LE (2023). High rates of fabricated and inaccurate references in ChatGPT-generated medical content. Cureus 15(5):e39238. https://doi.org/10.7759/cureus.39238 PMID 37337480
+- 研究：GPT-3.5 生成的医学文章中 115 条引用。
+- 发现：47% 编造，46% 真实但不准确，只有 7% 真实且准确；最常见的错误是 PMID。
+- 用法：同 AI-1；维护者用 check_refs.py library --online 定期核对证据库的 PMID。
+- 局限：单一模型、早期版本。等级 B。
+- 核验：VERIFIED（PubMed 元数据 2026-11-11；数字来自摘要）。
+
+### [AI-3] 聊天机器人健康信息审计（Tiller 2026）
+- 引用：Tiller NB, Marcon AR, Zenone M, Kidd KE, Jeukendrup AE, Master Z, et al. (2026). Generative artificial intelligence-driven chatbots and medical misinformation: an accuracy, referencing and readability audit. BMJ Open 16(4):e112695. https://doi.org/10.1136/bmjopen-2025-112695 PMID 41980854
+- 研究：2025 年 2 月测试 5 个聊天机器人、250 个问题。
+- 发现：49.6% 的回答有问题（19.6% 问题严重）；运动表现和营养是最差的领域之一；拒答只有 0.8%，回答“一贯地自信”；参考文献完整度中位 40%，没有一个能给出完全准确的参考文献列表。
+- 用法：底线 5（客观）和“证据不够就说不明确”；check_refs.py 的措辞检查。
+- 局限：问题偏向容易出错的话题。等级 B。
+- 核验：VERIFIED（PubMed 元数据 2026-11-11；数字来自摘要）。
+
+### [AI-4] 检索增强提高指南问答准确率（Alexandrou 2025）
+- 引用：Alexandrou M, Kumar S, Mahtani AU, Strepkos D, Carvalho PEP, Mutlu D, et al. (2025). Performance of large language models on the acute coronary syndrome guidelines using retrieval-augmented generation. JACC Cardiovasc Interv 18(20):2458-2467. https://doi.org/10.1016/j.jcin.2025.08.019 PMID 41161918
+- 研究：38 个指南问题，比较有无检索增强。
+- 发现：GPT-4o 准确率从 71.1% 升到 92.1%（P = 0.017）。
+- 用法：支持“规则和证据写在固定文件里、先读文件再回答”的设计。
+- 局限：心内科指南，不是运动科学。等级 B。
+- 核验：VERIFIED（PubMed 元数据 2026-11-11；数字来自摘要）。
+
+### [AI-5] 聊天机器人健康建议研究的报告质量（Huo 2025）
+- 引用：Huo B, Boyle A, Marfo N, Tangamornsuksan W, Steen JP, McKechnie T, et al. (2025). Large language models for chatbot health advice studies: a systematic review. JAMA Netw Open 8(2):e2457879. https://doi.org/10.1001/jamanetworkopen.2024.57879 PMID 39903463
+- 研究：137 项研究的系统综述。
+- 发现：99.3% 的研究无法确定所用模型版本，99.3% 没有描述提示词设计，只有 39.4% 报告了提问日期。
+- 用法：报告和课表末尾写上技能版本、模型和日期（check_refs.py --stamp、weekly.py --stamp）。
+- 局限：针对研究的报告质量，不是模型本身的表现。等级 A（针对报告质量）。
+- 核验：VERIFIED（PubMed 元数据 2026-11-11；数字来自摘要）。
+
+### [AI-6] ChatGPT 给跑者写的课表（Düking 2024）
+- 引用：Düking P, Sperlich B, Voigt L, Van Hooren B, Zanini M, Zinner C (2024). ChatGPT generated training plans for runners are not rated optimal by coaching experts, but increase in quality with additional input information. J Sports Sci Med 23(1):56-72. https://doi.org/10.52082/jssm.2024.56 PMID 38455449
+- 研究：三份输入详细程度递增的 6 周课表，由教练专家按 22 项指标评分。
+- 发现：输入最少的课表 22 项中有 19 项中位评分 <3/5；输入最详细的只有 1 项 <3、13 项 >3。作者建议不要在没有教练反馈时使用 ChatGPT 生成的课表。
+- 用法：支持第 2 步必须先问清楚（目标、近期成绩、伤病、可训练时间）再排课，以及用脚本和 14 条规则检查课表。
+- 局限：单一模型、单次评分。等级 B（样本小）。
+- 核验：VERIFIED（PubMed 元数据 2026-11-11；数字来自摘要）。
+
+### [AI-7] 运动营养知识的聊天机器人测试（Solomon & Laye 2025）
+- 引用：Solomon TPJ, Laye MJ (2025). The sports nutrition knowledge of large language model (LLM) artificial intelligence (AI) chatbots: an assessment of accuracy, completeness, clarity, quality of evidence, and test-retest reliability. PLoS One 20(6):e0325982. https://doi.org/10.1371/journal.pone.0325982 PMID 40512755
+- 研究：多个聊天机器人回答运动营养问题，专家评分。
+- 发现：开放题准确率从 31% 到 74%；简单提问时所有机器人引用的证据质量都低，详细提问时有改善。
+- 用法：不同人用不同模型跑本技能，结果会有差别 → 报告写明模型；数字一律由脚本算。
+- 局限：模型版本更新快。等级 B。
+- 核验：VERIFIED（PubMed 元数据 2026-11-11；数字来自摘要）。
+
+### [BCT-1] 有效的行为改变技巧（Michie 2009）
+- 引用：Michie S, Abraham C, Whittington C, McAteer J, Gupta S (2009). Effective techniques in healthy eating and physical activity interventions: a meta-regression. Health Psychol 28(6):690-701. https://doi.org/10.1037/a0016136 PMID 19916637
+- 研究：122 项评价（44,747 人）的荟萃回归。
+- 发现：总体效应 0.31；自我监测解释的异质性最多；自我监测加上至少一种控制论技巧（设目标、反馈、回顾目标）的效应 0.42，其他组合 0.26。
+- 用法：weekly.py 的结构：记录 → 对照计划 → 反馈 → 回顾和预案。
+- 局限：普通人群的饮食和运动干预，不是跑者。等级 A。
+- 核验：VERIFIED（PubMed 元数据 2026-11-11；数字来自摘要）。
+
+### [BCT-2] 活动监测器反馈的效果（Larsen 2022）
+- 引用：Larsen RT, Wagner V, Korfitsen CB, Keller C, Juhl CB, Langberg H, et al. (2022). Effectiveness of physical activity monitors in adults: systematic review and meta-analysis. BMJ 376:e068047. https://doi.org/10.1136/bmj-2021-068047 PMID 35082116
+- 研究：121 项随机试验、16,743 人的荟萃分析。
+- 发现：身体活动 SMD 0.42（约每天多 1,235 步），中高强度活动 SMD 0.23。
+- 用法：同 BCT-1。
+- 局限：普通成人，结局是步数和活动量，不是跑步成绩。等级 A。
+- 核验：VERIFIED（PubMed 元数据 2026-11-11；数字来自摘要）。
+
+### [BCT-3] “如果……就……”执行意图（Silva 2018）
+- 引用：Silva MAVD, São-João TM, Brizon VC, Franco DH, Mialhe FL (2018). Impact of implementation intentions on physical activity practice in adults: a systematic review and meta-analysis of randomized clinical trials. PLoS One 13(11):e0206294. https://doi.org/10.1371/journal.pone.0206294 PMID 30427874
+- 研究：13 项随机试验的荟萃分析。
+- 发现：加强的执行意图让身体活动增加，SMD 0.25（95% CI 0.05–0.45）。
+- 用法：weekly.py 每周请跑者写一条预案。
+- 局限：效应小，普通成人。等级 A。
+- 核验：VERIFIED（PubMed 元数据 2026-11-11；数字来自摘要）。
+
+### [BCT-4] 数字化运动干预的效应会消退（Zangger 2023）
+- 引用：Zangger G, Bricca A, Liaghat B, Juhl CB, Mortensen SR, Andersen RM, et al. (2023). Benefits and harms of digital health interventions promoting physical activity in people with chronic conditions: systematic review and meta-analysis. J Med Internet Res 25:e46439. https://doi.org/10.2196/46439 PMID 37410534
+- 研究：130 项随机试验（慢性病人群）的荟萃分析。
+- 发现：干预结束时 SMD 0.29，随访时降到 0.17。
+- 用法：用持续、轻量的每周复盘，而不是短期密集的提醒。
+- 局限：慢性病人群。等级 A。
+- 核验：VERIFIED（PubMed 元数据 2026-11-11；数字来自摘要）。
+
+### [BCT-5] 新手跑者为什么停跑（Fokkema 2019）
+- 引用：Fokkema T, Hartgens F, Kluitenberg B, Verhagen E, Backx FJG, van der Worp H, et al. (2019). Reasons and predictors of discontinuation of running after a running program for novice runners. J Sci Med Sport 22(1):106-111. https://doi.org/10.1016/j.jsams.2018.06.003 PMID 29934211
+- 研究：774 名参加新手跑步计划的人，随访 26 周。
+- 发现：29.5% 在 26 周内停跑，其中 48% 是因为跑步相关的伤病。
+- 用法：weekly.py 每周问一次疼痛。
+- 局限：新手，不是严肃跑者。等级 B。
+- 核验：VERIFIED（PubMed 元数据 2026-11-11；数字来自摘要）。
+
+### [BCT-6] 即时个性化消息没有增加步数（Vos 2025）
+- 引用：Vos AL, de Bruijn GJ, Klein MCA, Boerman SC, Stuber JM, Smit EG (2025). Effectiveness of a just-in-time adaptive app to increase daily steps: an RCT. Am J Prev Med 68(1):154-163. https://doi.org/10.1016/j.amepre.2024.09.010 PMID 39299494
+- 研究：176 人的随机试验。
+- 发现：在计步应用上加入即时个性化教练内容，每日步数没有显著差别（B = −202 步，95% CI −890 到 485）。
+- 用法：复盘只对账和写预案，不做推送式激励。
+- 局限：普通人群，结局是步数。等级 B。
+- 核验：VERIFIED（PubMed 元数据 2026-11-11；数字来自摘要）。
+
+### [UNC-1] 说明不确定性对信任的影响（van der Bles 2020）
+- 引用：van der Bles AM, van der Linden S, Freeman ALJ, Spiegelhalter DJ (2020). The effects of communicating uncertainty on public trust in facts and numbers. Proc Natl Acad Sci U S A 117(14):7672-7683. https://doi.org/10.1073/pnas.1913678117 PMID 32205438
+- 研究：多项在线实验（研究笔记记为 5,780 人）。
+- 发现：用数字区间说明不确定性，只让人们对数字的信任略微下降；用文字表达不确定性时下降更多。
+- 用法：“可能变好/不明确”旁边要印出变化值、个人波动和样本数（hrpace.py 已经这样做）。
+- 局限：一般公众，话题不是运动。等级 B。
+- 核验：VERIFIED（PubMed 元数据 2026-11-11；人数来自研究笔记）。
+
+### [UNC-2] 文字概率的理解差异（Andreadis 2021）
+- 引用：Andreadis K, Chan E, Park M, Benda NC, Sharma MM, Demetres M, et al. (2021). Imprecision and preferences in interpretation of verbal probabilities in health: a systematic review. J Gen Intern Med 36(12):3820-3829. https://doi.org/10.1007/s11606-021-07050-7 PMID 34357577
+- 研究：33 项研究的系统综述。
+- 发现：人们对“罕见”的理解从 7% 到 21%，对“常见”从 34% 到 71%；多数人更愿意看到数字。
+- 用法：判定词要配数字。
+- 局限：医疗风险话题。等级 A。
+- 核验：VERIFIED（PubMed 元数据 2026-11-11；数字来自摘要）。
+
+### [UNC-3] 量级推断的问题（Sainani 2018）
+- 引用：Sainani KL (2018). The problem with "magnitude-based inference". Med Sci Sports Exerc 50(10):2166-2176. https://doi.org/10.1249/MSS.0000000000001645 PMID 29683920
+- 研究：统计方法学评论和模拟。
+- 发现：运动科学常用的“量级推断”（likely/unclear 这类说法）在小样本下的一类错误率是常规检验的 2–6 倍。
+- 用法：本技能的三档判定额外要求 90% 置信区间不跨 0，并且永远不写“87% 可能有益”这类概率；说明阈值是经验规则。
+- 局限：方法学争论仍在继续。等级 C。
+- 核验：VERIFIED（PubMed 元数据 2026-11-11；倍数来自研究笔记的摘要摘录）。
+
+### [UNC-4] 伪造的睡眠反馈影响白天感受（Gavriloff 2018）
+- 引用：Gavriloff D, Sheaves B, Juss A, Espie CA, Miller CB, Kyle SD (2018). Sham sleep feedback delivered via actigraphy biases daytime symptom reports in people with insomnia: implications for insomnia disorder and wearable devices. J Sleep Res 27(6):e12726. https://doi.org/10.1111/jsr.12726 PMID 29989248
+- 研究：63 名失眠者的实验。
+- 发现：收到伪造的“睡得差”反馈后，主观警觉度明显变差（d = 0.79），客观警觉测试没有差别。
+- 用法：一项手表分数差不改课；提供“少看数”模式（weekly.py --light）；分数和感受不一致、又没有红旗时，以感受为准 [SUBJ-1]。
+- 局限：失眠者，不是运动员；没有找到研究运动员因分数焦虑的文献。等级 B（样本小）。
+- 核验：VERIFIED（PubMed 元数据 2026-11-11；数字来自摘要）。

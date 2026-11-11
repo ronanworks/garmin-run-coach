@@ -37,7 +37,7 @@ DEFAULT_KEY_FILE = Path.home() / ".config" / "garmin" / "connect-personal-api-ke
 CONF_DIR = Path.home() / ".config" / "garmin-run-coach"
 CONF_FILE = CONF_DIR / "config.json"
 TOKEN_CACHE = CONF_DIR / "token.json"
-USER_AGENT = "garmin-run-coach/1.0 (personal use)"
+USER_AGENT = "garmin-run-coach/1.4 (personal use)"
 MIN_INTERVAL = 0.35  # 两次请求之间至少间隔的秒数，对佳明服务器客气一点
 
 _last_call = [0.0]
@@ -373,3 +373,72 @@ def parse_time(t) -> float:
 
 def eprint(*a):
     print(*a, file=sys.stderr)
+
+
+# ---------------------------------------------------------------- 版本与跑步记录（v1.4）
+
+SKILL_VERSION = "1.4.0"
+
+
+def list_runs(raw=None):
+    """activities.json 里的跑步，按开始时间排序：[{id, date, start, km, sec, type, treadmill, race, name}]。"""
+    raw = Path(raw) if raw else raw_dir()
+    out = []
+    for a in load_json(raw / "activities.json", []) or []:
+        t = a.get("activityType") or {}
+        k = t.get("typeKey", "") or ""
+        if not ("run" in k or t.get("parentTypeId") == 1):
+            continue
+        try:
+            sl = datetime.strptime(str(a.get("startTimeLocal"))[:19], "%Y-%m-%d %H:%M:%S")
+        except ValueError:
+            continue
+        out.append({"id": a.get("activityId"), "date": sl.date(), "start": sl, "km": (a.get("distance") or 0) / 1000.0,
+                    "sec": a.get("movingDuration") or a.get("duration") or 0, "type": k,
+                    "treadmill": ("treadmill" in k or "indoor" in k), "name": a.get("activityName") or "",
+                    "race": ((a.get("eventType") or {}).get("typeKey") == "race")})
+    out.sort(key=lambda r: r["start"])
+    return out
+
+
+def longest_before(runs, d, days=30):
+    """d 之前 days 天内（不含 d 当天）最长的一次跑步（km）；没有跑步时返回 0。规则 P1 的参照值 [LOAD-3]。"""
+    xs = [r["km"] for r in runs if d - timedelta(days=days) <= r["date"] < d]
+    return max(xs) if xs else 0.0
+
+
+def append_diary(entry: dict):
+    """跑者自己说的话（疼痛、生病、感觉、预案）记进 ~/garmin-coach/diary.jsonl。只追加，不改写旧记录。"""
+    p = coach_home() / "diary.jsonl"
+    ensure_private_dir(p.parent)
+    with open(p, "a", encoding="utf-8") as f:
+        f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+    try:
+        os.chmod(p, 0o600)
+    except OSError:
+        pass
+
+
+def read_diary():
+    p = coach_home() / "diary.jsonl"
+    out = []
+    if p.exists():
+        for line in p.read_text(encoding="utf-8").splitlines():
+            try:
+                out.append(json.loads(line))
+            except ValueError:
+                continue
+    return out
+
+
+def plan_week_rows(plan, until=None):
+    """课表每周的计划跑量和课次：[{week, start, end, planned_km, sessions}]（until 之后的周不返回）。"""
+    rows = []
+    for w in (plan or {}).get("weeks", []):
+        start = parse_date(w["start"])
+        if until and start > until:
+            break
+        ses = [s for s in w.get("sessions", []) if s.get("km") and s.get("type") not in ("rest", "strength")]
+        rows.append({"week": w.get("week"), "start": start, "end": start + timedelta(days=6), "phase": w.get("phase"),
+                     "planned_km": sum(s["km"] for s in ses), "sessions": ses, "recovery": w.get("recovery")})
+    return rows

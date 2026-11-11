@@ -92,7 +92,7 @@ def race_mode(a):
     if len(vals) > 5:
         rows += [("偏热（75%% 分位）" % (), q(0.75)), ("很热（90% 分位）", q(0.90))]
     print("比赛日 %s，%02d:00 起约 %d 小时；数据：%s；城市坐标 %.2f, %.2f。" % (rd, a.hour, len(hrs), src, a.lat, a.lon))
-    print("| 情形 | WBGT 粗估 | 超出最佳区间 | 成绩约慢 | %s" % ("调整后目标 |" if goal else ""))
+    print("| 情形 | WBGT 粗估 | 偏离 7.5–15 °C 最佳区间 | 成绩约慢 | %s" % ("调整后目标 |" if goal else ""))
     print("|---|---|---|---|%s" % ("---|" if goal else ""))
     for label, w in rows:
         ex = max(0.0, w - 15) + max(0.0, 7.5 - w)

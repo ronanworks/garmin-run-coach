@@ -1,6 +1,6 @@
 ---
 name: garmin-run-coach
-description: 用佳明（Garmin）手表数据做有文献依据的跑步训练分析、比赛目标设定和周期化课表规划，并把课表自动写进佳明 Connect 日历、同步到手表。用户提到佳明/Garmin/Forerunner/Fenix/Connect 数据，个人 API 密钥，跑步数据分析，心率或配速区间，HRV、静息心率、睡眠与恢复，马拉松、半马、10K、5K 备赛，目标成绩预测，训练计划或课表，“今天该怎么跑”，或者把课表导入手表时，都要使用本技能，即使用户没有点名。Use for Garmin running data analysis, race goal setting, evidence-based training plans, daily readiness decisions and pushing workouts to Garmin Connect.
+description: 用佳明（Garmin）手表数据做有文献依据的跑步训练分析、比赛目标设定和周期化课表规划，并把课表自动写进佳明 Connect 日历、同步到手表。用户提到佳明/Garmin/Forerunner/Fenix/Connect 数据，个人 API 密钥，跑步数据分析，心率或配速区间，HRV、静息心率、睡眠与恢复，马拉松、半马、10K、5K 备赛，目标成绩预测，训练计划或课表，“今天该怎么跑”，生病或停跑后怎么恢复训练，比赛周准备（咖啡因、热身、赛前睡眠），每周复盘，或者把课表导入手表时，都要使用本技能，即使用户没有点名。Use for Garmin running data analysis, race goal setting, evidence-based training plans, daily readiness decisions and pushing workouts to Garmin Connect.
 ---
 
 # 佳明跑步教练
@@ -31,6 +31,8 @@ description: 用佳明（Garmin）手表数据做有文献依据的跑步训练�
 3. **有理有据。**
    - 建议后面要带证据编号；没有对应证据的写“经验做法”。
    - 不编造研究，不编造数字，不把证据等级说高。`evidence.md` 标成“未核实”的数字不要引用。
+   - 正文只写证据编号，不手写 PMID、DOI 或文献名（大模型最常编错的就是这些 [AI-1][AI-2]）。
+   - 分析报告、目标建议、课表说明、周复盘发给用户之前，先存成文件运行 `check_refs.py report 文件 --stamp "模型名"`：有 ERROR 先改，有 WARN 就把措辞降为“经验做法/不明确”（见 `report-templates.md` 第 8 节）。
 4. **数字由脚本算。** 跑量、区间、预测、检查结果都来自脚本输出。脚本没有算的，就说“没有数据”。
    - **旧比赛不进预测。** 只有近 26 周的正式比赛或全力测试，能用来预测成绩、定目标和定配速。更早的比赛可以写进 `athlete.json`，脚本会自动排除，只能说成“当时的水平”，不能当“历史锚点”去推算目标或配速。
    - 参考文件里出现的成绩、心率、日期都是**举例**，不是这位用户的数据。用户没说的信息（比如目标成绩），就当作不知道，去问用户，不要从例子里拿。
@@ -43,8 +45,9 @@ description: 用佳明（Garmin）手表数据做有文献依据的跑步训练�
    - 必须改时只改当天，后面的课不重排，漏掉的课不补。
    - 这样做是为了避免一个坏睡眠打乱一整周（见 `references/daily-adjust.md`）。
 7. **医疗边界。**
-   - 出现胸痛、晕厥、心悸、发热、影响跑姿的疼痛，或者疑似能量不足的信号（停经、反复应力性骨折、体重持续下降），一律先停跑，建议就医，不做训练建议 [REDS-1][ILL-2]。
-   - 不诊断伤病，不推荐药物。
+   - 出现胸痛、晕厥、心悸、发热、影响跑姿的疼痛，或者疑似能量不足的信号（停经、反复应力性骨折、体重持续下降），一律先停跑，建议就医，不做训练建议 [REDS-1][ILL-3]。
+   - 这时也暂停往手表写新课，等用户说医生同意了再写。
+   - 不诊断伤病，不推荐药物（咖啡因只给研究里的剂量范围，封顶 6 mg/kg，并提醒哪些人先问医生）。
 8. **改动佳明账号前先确认。**
    - 先预览，等用户明确同意后再写入。
    - 不删除、不改动用户已有的课程和日历内容。遇到冲突时先问用户。
@@ -79,6 +82,7 @@ description: 用佳明（Garmin）手表数据做有文献依据的跑步训练�
    7. **安全筛查**：有没有心脏病史、运动时胸痛或晕厥、正在服用影响心率的药物、怀孕。
    8. **性别和出生年份**：用来选择负荷公式，可以不答。
    9. **所在城市**：只用来查城市级历史气温（写成 `city_coords`，保留两位小数；搬过家用 `city_history`）。气温会明显影响同配速心率，没有它就无法区分“体能变化”和“天气变化”。
+   10. **手表分数会不会让你焦虑**：会的话，日常只给周复盘的少看数版本，不天天报分数 [UNC-4]。
 2. 把回答写进 `~/garmin-coach/athlete.json`，格式见 `assets/athlete.example.json`。比赛要写日期；超过 26 周的比赛照样记下，但不用于预测（见底线 4）。
 3. 安全筛查有任何一项“是”，就停在这里，建议用户先看医生。
 
@@ -119,6 +123,7 @@ python3 SKILL_DIR/scripts/analyze.py --weeks 26
 4. 用户的期望明显超出预测区间时，直说差距和原因，再给出时间线，比如“这个周期达不到，下个周期有机会”。
 5. **天气修正**：比赛日期和城市确定后，运行 `weather.py --race-date`，给三档目标各加一个按 WBGT 的放慢区间 [HEAT-4]。
 6. **补给计划**：比赛前 6–8 周开始，用 `fuel.py` 测出汗率、生成比赛补给计划，并把练肠胃安排进长距离（goal-setting.md 第 6 节）。
+7. **比赛周**：赛前 1–2 周运行 `raceweek.py`，给咖啡因剂量、按距离的热身课、睡眠和安全提醒（goal-setting.md 第 7 节）[CAF-1][MED-1]。
 
 ### 第 6 步：做课表
 
@@ -180,7 +185,10 @@ python3 SKILL_DIR/scripts/analyze.py --weeks 26
 - **“分析一下今天/这次的课”**：运行 `garmin_pull.py --days 3`，再运行 `review.py --date 日期`。按 analysis-protocol.md 第 7 节解读：先看完成度和配速，再看心率（脚本会提示心率数据是否可疑），并问用户的用力感受。用“单次课复盘”模板回复。一次课的结果不改课表。
   - 比赛或长距离：报告多一节分段、撞墙检测、心率/速度脱钩和天气，按 analysis-protocol.md 第 7 节第 6 条解读，用模板里的比赛补充部分回复。
 - **测出汗率**：用户长距离前后称了体重，就运行 `fuel.py sweat`，记录下来，比赛补给计划会用到。
-- **每周复盘**：运行 `analyze.py --weeks 8`，用“周复盘”模板，比较计划和实际，只记录，不重排。
+- **生病、受伤、出差，或者停跑 8 天以上**（用户问“怎么恢复训练”）：运行 `resume.py`（daily-adjust.md “中断后复训”）；用户只问“今天怎么跑”又有症状时，先用 `today.py --symptoms`，再接 `resume.py`。参数只填用户本人说的情况（会记进日记）；替用户试算时加 `--no-log`。有红旗先停、看医生；生病按“静息症状清单 → 自测运动 → 观察 24 小时”[ILL-3]；按停跑天数分档 [DETR-1][DETR-2]；回来第 2 周用有氧检查跑实测掉了多少。
+- **临时想跑更长**（“明天想跑 30 km”）：`resume.py --want-km 30 --on 日期`，按 P1 检查 [LOAD-3]。
+- **坡道多的路线**：复盘里看“坡度校正配速”列；单看一次跑用 `gap.py --date 日期` [GAP-1]。
+- **每周复盘**：先问疼痛（0–10、部位），再运行 `garmin_pull.py --days 10` 和 `weekly.py --pain N`，用“周复盘”模板：对账、看 P1、写下周的“如果……就……”预案 [BCT-1][BCT-3][BCT-5]。只记录，不重排；没做的课不补。用户愿意的话，可以在支持定时任务的智能体里设成每周一自动运行（report-templates.md 第 5 节）。
 - **到检查点时**：按 goal-setting.md 的规则更新目标和配速，重新生成下一段课表，再写进佳明。
 
 ## 参考文件
@@ -189,12 +197,12 @@ python3 SKILL_DIR/scripts/analyze.py --weeks 26
 |---|---|
 | `references/connect-garmin.md` | 第 1 步：获取密钥、地区、故障排查、可选的 garmin_mcp、接口和字段说明 |
 | `references/analysis-protocol.md` | 第 4 步：逐节解读事实报告的规则；第 2b 节心率-配速表现；第 7 节单次课复盘 |
-| `references/goal-setting.md` | 第 5 步：预测模型怎么用、三档目标、检查点、配速护栏、天气修正、补给计划 |
+| `references/goal-setting.md` | 第 5 步：预测模型怎么用、三档目标、检查点、配速护栏、天气修正、补给计划、比赛周清单 |
 | `references/plan-design.md` | 第 6 步：周期、骨架、进阶、课型、减量、力量、补给、plan.json 格式、检查规则 P1–P14、力量与有氧检查跑 |
 | `references/garmin-writeback.md` | 第 7 步：三条写入路线、预览和确认、核对、同步手表 |
-| `references/daily-adjust.md` | 第 8 步：每日决策树 D1–D7、漏课、生病、受伤 |
+| `references/daily-adjust.md` | 第 8 步：每日决策树 D1–D7、漏课、中断后复训（生病、受伤、停跑） |
 | `references/evidence.md` | 写任何“研究表明”之前：编号、结论、等级 |
-| `references/report-templates.md` | 输出报告时：分析报告、目标建议、课表说明、每日建议、周复盘 |
+| `references/report-templates.md` | 输出报告时：分析报告、目标建议、课表说明、每日建议、周复盘、生成信息（引用自检） |
 
 ## 常见情况
 

@@ -3,7 +3,7 @@
 
   python3 hrpace.py                       # 打印最近 26 周的心率-配速趋势（需要先运行 analyze.py 生成缓存）
   python3 hrpace.py --ref-pace 5:30 --ref-hr 145
-  python3 hrpace.py --run 658880388       # 某一次跑步和此前 8 周的模型相比
+  python3 hrpace.py --run 123456789       # 某一次跑步和此前 8 周的模型相比
 
 方法（详见 references/analysis-protocol.md 第 2b 节和 evidence.md）：
 1. 稳定段：每次跑步切成 60 秒一段，只保留“移动时间第 10–60 分钟、本段配速波动小、前 3 分钟配速也接近、

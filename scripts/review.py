@@ -3,7 +3,7 @@
 
   python3 review.py                    # 最近一次跑步
   python3 review.py --date 2026-11-05  # 那天的最后一次跑步
-  python3 review.py --id 658880388
+  python3 review.py --id 123456789
 
 计划目标优先读 FIT 文件里手表实际执行的课程步骤（佳明课程、佳明教练课、本技能写入的课都有）；
 没有结构化课程时，再看 ~/garmin-coach/plan/plan.json 里当天的课。
@@ -20,6 +20,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import gclib  # noqa: E402
 import fitlite  # noqa: E402
 import hrpace  # noqa: E402
+import gap  # noqa: E402
 from gclib import fmt_dur, fmt_pace  # noqa: E402
 
 KIND = {0: "训练", 1: "休息", 2: "热身", 3: "放松", 4: "恢复", 5: "训练", 6: "其他"}
@@ -197,14 +198,23 @@ def race_section(rec, a, cs=None):
     dist_km = (a.get("distance") or 0) / 1000
     is_race = ((a.get("eventType") or {}).get("typeKey") == "race")
     L.append("\n## %s\n" % ("比赛配速分析" if is_race else "长距离配速与耐久性"))
+    # 坡度校正（[GAP-1][GAP-2]）：只在有海拔、不是跑步机时做
+    gmap, gconf = {}, "没有数据"
+    if "treadmill" not in ((a.get("activityType") or {}).get("typeKey") or ""):
+        grows, gconf = gap.km_gap(rec)
+        gmap = {k: gs for k, _, gs, _ in (grows or [])}
     rows5 = []
     for j in range(0, len(sp), 5):
         g = sp[j:j + 5]
         tt = sum(x[1] for x in g)
         hs = [x[2] for x in g if x[2]]
-        rows5.append("| %d–%d km | %s | %s | %s |" % (g[0][0] - 1, g[-1][0], fmt_dur(tt), fmt_pace(len(g) * 1000 / tt),
-                                                    ("%.0f" % st.mean(hs)) if hs else "-"))
-    L.append("| 区段 | 用时 | 配速 | 平均心率 |\n|---|---|---|---|\n" + "\n".join(rows5))
+        gt = sum(gmap.get(x[0], x[1]) for x in g)
+        rows5.append("| %d–%d km | %s | %s | %s | %s |" % (g[0][0] - 1, g[-1][0], fmt_dur(tt), fmt_pace(len(g) * 1000 / tt),
+                                                         fmt_pace(len(g) * 1000 / gt) if gmap else "-",
+                                                         ("%.0f" % st.mean(hs)) if hs else "-"))
+    L.append("| 区段 | 用时 | 配速 | 坡度校正配速 | 平均心率 |\n|---|---|---|---|---|\n" + "\n".join(rows5))
+    if gmap:
+        L.append("\n坡度校正置信度：%s（下坡封顶和海拔平滑是本技能的经验参数 [GAP-1][GAP-2]）。" % gconf)
     half = len(sp) // 2
     t1 = sum(x[1] for x in sp[:half])
     t2 = sum(x[1] for x in sp[half:2 * half])
@@ -237,7 +247,14 @@ def race_section(rec, a, cs=None):
         L.append("- 步频：前段约 %.0f，最后 5 km 约 %.0f 步/分（%+.0f）。" % (c1, c2, c2 - c1))
     hilly = sum(1 for x in sp if x[4] is not None and abs(x[4]) > 0.03)
     if hilly >= 3:
-        L.append("- 有 %d 公里坡度超过 3%%，分段配速和脱钩会受坡道影响，要结合路线看。" % hilly)
+        if gmap and gconf != "很低":
+            gsp = [(k, gmap.get(k, sec), h, c, g) for k, sec, h, c, g in sp]
+            gr_, go_ = durability(gsp, ref)
+            L.append("- 有 %d 公里坡度超过 3%%：上面的分段要看“坡度校正配速”列。按坡度校正配速算的耐久性比值 %s%s；"
+                     "坡后的配速和心率会滞后约 1 分钟，所以只能按公里看 [GAP-3]。" % (
+                         hilly, ("%.2f" % gr_) if gr_ else "算不出", ("，从第 %d km 开始脱钩" % go_) if go_ else ""))
+        else:
+            L.append("- 有 %d 公里坡度超过 3%%，分段配速和脱钩会受坡道影响；海拔数据不够可靠，没法做坡度校正，要结合路线看。" % hilly)
     return L
 
 

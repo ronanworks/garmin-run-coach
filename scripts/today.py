@@ -79,8 +79,9 @@ def main():
         print("\n".join(lines + ["结论：今天不跑，尽快就医（胸痛、晕厥、心悸、异常气短都不要硬撑）。[D1]"]))
         return 0
     if a.symptoms in ("below_neck", "fever"):
-        print("\n".join(lines + ["结论：今天不跑。发热或颈部以下症状（咳嗽加重、胸闷、全身酸痛、乏力）时休息，"
-                                 "症状消失后再休 1 天，回来先跑轻松。[D2]（经验法则，证据有限）"]))
+        print("\n".join(lines + ["结论：今天不跑。发热、寒战、全身酸痛、过度疲劳，或胸痛、心悸、头晕时卧床休息，症状消失后先看医生；"
+                                 "咳嗽、胸部症状这类中度情况，症状消失前只做日常活动。之后按 resume.py 的顺序回来："
+                                 "静息症状清单 → 10–20 分钟自测运动 → 观察 24 小时 [D2][ILL-3]。"]))
         return 0
     if a.pain is not None and (a.pain >= 4 or a.gait):
         print("\n".join(lines + ["结论：今天不跑。疼痛 ≥4/10 或影响跑姿时停跑 48 小时，没有好转就去看医生；"
@@ -146,6 +147,11 @@ def main():
     if a.pain is not None and 0 < a.pain < 4:
         signals.append("轻微疼痛 %d/10" % a.pain)
 
+    runs = gclib.list_runs(raw)
+    last_run = max((r["date"] for r in runs if r["date"] < today), default=None)
+    if last_run and (today - last_run).days >= 8:
+        reasons.append("已经 %d 天没跑（最后一次 %s）：先运行 resume.py 定复训档位，不要直接接着课表跑"
+                       % ((today - last_run).days, last_run))
     t = s.get("type")
     very_bad = (a.feel is not None and a.feel <= 1) or (a.soreness is not None and a.soreness >= 8)
     # ---- 漏课：最近 1–3 天的重课没做，今天是它的备用日
@@ -162,7 +168,9 @@ def main():
     if very_bad:
         verdict, rules = "休息，或只跑 20–30 分钟很轻松的跑", ["D5"]
     elif a.symptoms == "above_neck":
-        verdict, rules = "只跑轻松（心率 ≤%s），缩短到平时的 50–70%%，不做强度" % (easy_hr or "轻松上限"), ["D2"]
+        verdict = ("先确认症状轻、在好转（没超过 3 天），安静时没有发热、胸闷、全身酸痛；都满足的话，今天只做 10–20 分钟、平时 60–70%% 用力的轻松跑或快走"
+                   "（心率 ≤%s），不做强度；之后 24 小时没有加重，再接回课表" % (easy_hr or "轻松上限"))
+        rules = ["D2", "ILL-3"]
     elif t in HARD and (hrv_low or len(signals) >= 2):
         km = s.get("km") or 8
         verdict = "主课改成轻松跑 %g km（心率 ≤%s）" % (max(5, round(km * 0.8)), easy_hr or "轻松上限")

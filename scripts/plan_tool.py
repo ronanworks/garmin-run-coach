@@ -455,7 +455,7 @@ def build(req):
         "name_prefix": req.get("name_prefix", "GRC·"), "peak_km": peak, "taper_weeks": taper,
         "checkpoints": [{"week": w + 1, "test": t[2]} for w, t in sorted(test_weeks.items())],
         "check_pace": fmt_pace(1000 / check_pace), "aerobic_check_every": check_every,
-        "generator": "plan_tool.py build v1.3",
+        "generator": "plan_tool.py build v1.4",
     }
     return {"meta": meta, "weeks": weeks}
 
