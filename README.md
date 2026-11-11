@@ -1,61 +1,63 @@
-# garmin-run-coach · 佳明跑步教练技能
+# garmin-run-coach
 
-给 AI 智能体用的跑步教练技能（Agent Skill，`SKILL.md` 格式）。它会读取你自己的佳明（Garmin）手表数据，做有文献依据的训练分析，设定比赛目标，排出周期化课表，并把课表写进佳明 Connect 日历、同步到手表。
+English | [简体中文](README.zh-CN.md)
 
-设计原则：**数字靠脚本，判断靠规则，规则靠文献**。每个结论都会标明它属于以下哪一类：
-- 数据显示
-- 研究表明（附证据编号）
-- 经验做法
+A running-coach skill for AI agents (an Agent Skill in `SKILL.md` format). It reads your own Garmin watch data, analyses your training against the research literature, sets race goals, builds a periodized training plan, and writes the workouts to your Garmin Connect calendar so they sync to your watch.
 
-证据不够时，结论就是“不明确”。
+Design principle: **scripts compute the numbers, rules make the judgements, and the literature backs the rules.** Every conclusion is labelled as one of:
+- what the data shows
+- what research shows (with an evidence ID)
+- coaching practice (a heuristic, not a research finding)
 
-## 能做什么
+When the evidence is not strong enough, the answer is "unclear".
 
-| 功能 | 说明 |
+> **Language:** the skill's instructions, rule files and generated reports are written in Chinese. Agents can still talk to you in English, but the reports and plans the scripts produce are in Chinese. The detailed install guide ([安装说明.md](安装说明.md)) is also in Chinese.
+
+## What it does
+
+| Feature | Details |
 |---|---|
-| 接入数据 | 引导你创建佳明个人 API 密钥（国际区、中国区都支持），在本机拉取活动、FIT 逐秒数据、HRV、睡眠、静息心率 |
-| 训练分析 | 周跑量与长距离、三区强度分布、单次跑量尖峰、负荷与单调性、恢复指标、作息规律、最佳成绩、临界速度、多模型成绩预测 |
-| 心率-配速表现 | 从稳定跑段计算“同配速心率 / 同心率配速”的趋势：先估计个人波动，再给出三档判定（可能变好 / 不明确 / 可能变差）；只在同一体感温度段内比较，并排除心率锁步频 |
-| 单次课与比赛复盘 | 按手表执行的课程步骤逐段对照配速和心率，统计组间恢复，提示可疑的心率数据；比赛另外给出分段、坡度校正配速、撞墙检测、心率/速度脱钩和天气 |
-| 目标与天气 | 三档目标与检查点；按比赛日 WBGT 估算目标成绩该放慢多少 |
-| 课表 | 周期化课表生成器 + 14 条规则检查；含力量训练模块和标准有氧检查跑 |
-| 每日决策 | “只改今天”：结合 HRV、静息心率、睡眠和主观感受，决定今天照常还是改轻松，后面的课表不动 |
-| 中断后复训 | 生病、受伤、停跑后按天数分档；生病按 IOC 共识的症状清单和自测运动；用检查跑实测掉了多少；单次跑量不超过前 30 天最长的 110% |
-| 每周复盘 | 计划和实际对账、每周问疼痛、下周的单次跑量上限、“如果……就……”预案；可以定时自动运行 |
-| 比赛周 | 按体重算咖啡因、按距离的热身课、赛前睡眠、止痛药和心脏提醒 |
-| 补给 | 称重法出汗率、比赛补给计划、肠道训练进阶 |
-| 引用自检 | 报告发出前检查证据编号、拦住编造的文献，注明技能版本和模型 |
-| 写入手表 | 生成佳明训练课程并排进日历（浏览器自动写入、garmin_mcp 或手动清单），写入前先预览、等你确认 |
+| Data access | Guides you through creating a Garmin Personal API key (global and China regions), then pulls activities, per-second FIT data, HRV, sleep and resting HR to your own computer |
+| Training analysis | Weekly volume and long runs, three-zone intensity distribution, single-run spikes, load and monotony, recovery markers, daily routine, best efforts, critical speed, multi-model race prediction |
+| Heart rate vs. pace | Tracks "HR at a given pace" and "pace at a given HR" from steady segments. It estimates your personal noise first, then gives a three-way verdict (likely better / unclear / likely worse). Comparisons stay within the same apparent-temperature band, and cadence-locked HR is excluded |
+| Session and race review | Compares each workout step on your watch with its pace and HR targets, measures recovery between reps, and flags suspicious HR data. Races add splits, grade-adjusted pace, wall detection, HR/speed decoupling and weather |
+| Goals and weather | Three goal tiers with checkpoints, and how much to slow your target for race-day WBGT |
+| Training plan | Periodized plan generator with 14 rule checks, including a strength module and a standard aerobic check run |
+| Daily decision | "Change today only": combines HRV, resting HR, sleep and how you feel to decide whether today stays as planned or turns easy. The rest of the plan stays fixed |
+| Return to training | After illness, injury or a break, tiers by days off. Illness follows the IOC consensus symptom checklist and self-test session. A check run measures what you lost. No single run more than 110% of your longest run in the past 30 days |
+| Weekly review | Plan vs. actual, a weekly pain question, next week's single-run cap, and an "if…then…" plan. It can run on a schedule |
+| Race week | Caffeine dose by body weight, a warm-up workout by race distance, pre-race sleep, painkiller and cardiac reminders |
+| Fueling | Sweat rate by weighing, a race fueling plan, and a gut-training progression |
+| Citation self-check | Checks evidence IDs before a report goes out, blocks fabricated references, and stamps the skill version and model |
+| Write to your watch | Creates Garmin workouts and schedules them (browser automation, garmin_mcp, or a manual checklist). Always previews first and waits for your OK |
 
-脚本只用 Python 3 标准库，不需要安装任何包。
+The scripts use only the Python 3 standard library; nothing to install.
 
-## 安装
+## Install
 
-1. 下载本仓库：点右上角绿色 **Code → Download ZIP**，解压后把文件夹改名为 `garmin-run-coach`。
-2. 把 `garmin-run-coach` 文件夹放进智能体的技能目录。以 Claude Code 为例，放到 `~/.claude/skills/garmin-run-coach/`。
-3. 重新打开智能体，对它说：“帮我分析一下我的佳明数据，我想明年春天跑全马。”
+1. Download this repository: click the green **Code → Download ZIP**, unzip it, and rename the folder to `garmin-run-coach`.
+2. Put the `garmin-run-coach` folder in your agent's skills directory. For Claude Code, that is `~/.claude/skills/garmin-run-coach/`.
+3. Restart your agent and say something like: "Analyse my Garmin data — I want to run a marathon next spring."
 
-详细说明（需要什么、怎么获取密钥、隐私、更新记录）见 [安装说明.md](安装说明.md)。
+## Privacy
 
-## 隐私
+- Your heart rate, sleep and GPS data stay on your computer in `~/garmin-coach/`. Nothing is uploaded, and this repository contains no personal data.
+- A Garmin Personal API key may only be used for your own data. Don't share it. Type it into your own terminal, never into a chat.
+- Weather lookups use city-level coordinates only.
 
-- 你的心率、睡眠、轨迹等数据只保存在你电脑的 `~/garmin-coach/` 里，不会上传，本仓库也不包含任何个人数据。
-- 佳明个人 API 密钥只能用于你本人的数据，不要分享；输入密钥时在你自己的终端里输入，不要发到聊天里。
-- 查天气只用城市级坐标。
+## Disclaimer
 
-## 免责声明
+- This is a training-advice tool, not a medical device. If you have chest pain, fainting, palpitations, fever, or pain that changes how you run, stop and see a doctor.
+- Writing to Garmin Connect uses the unofficial web API or the third-party open-source tool [garmin_mcp](https://github.com/Taxuspt/garmin_mcp). It may break when Garmin changes things; use at your own risk.
+- Research findings describe groups, not individuals. Treat them as guidance, not promises.
 
-- 这是训练建议工具，不是医疗诊断。出现胸痛、晕厥、心悸、发热、影响跑姿的疼痛时，请先停跑并就医。
-- 写入佳明 Connect 用的是网页的非官方接口，或第三方开源工具 [garmin_mcp](https://github.com/Taxuspt/garmin_mcp)。佳明改版后可能失效，使用风险自负。
-- 文献结论都是群体层面的规律，用到个人身上只能当参考，不是承诺。
+## Evidence and acknowledgements
 
-## 证据与致谢
+- Evidence library: `references/evidence.md`, 138 entries, each with an evidence grade and verification status. `scripts/check_refs.py library --online` re-checks every PMID against PubMed.
+- Data: Garmin Connect Personal API. Historical weather: [Open-Meteo](https://open-meteo.com/).
+- The second workout-writing route is based on the open-source project [Taxuspt/garmin_mcp](https://github.com/Taxuspt/garmin_mcp) (MIT licence).
+- This project is not affiliated with Garmin.
 
-- 文献库：`references/evidence.md`，共 138 条，每条都标了证据等级和核验状态；`scripts/check_refs.py library --online` 可以用 PubMed 重新核对。
-- 数据接口：Garmin Connect Personal API；历史天气：[Open-Meteo](https://open-meteo.com/)。
-- 写入课程的第二种方式参考了开源项目 [Taxuspt/garmin_mcp](https://github.com/Taxuspt/garmin_mcp)（MIT 许可）。
-- 本项目和 Garmin 公司没有任何关系。
+## License
 
-## 许可证
-
-[MIT](LICENSE)：可以自由使用、修改、再分享（包括商用），只需保留版权和许可声明；作者不提供任何担保。
+[MIT](LICENSE): free to use, modify and share (including commercially), as long as you keep the copyright and licence notice. No warranty.
